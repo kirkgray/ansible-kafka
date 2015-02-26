@@ -1,4 +1,12 @@
 ---
+- name: update APT package cache
+  sudo: yes
+  apt: update_cache=yes
+
+- name: upgrade all safe packages
+  sudo: yes
+  apt: upgrade=safe
+  
 - name: Install OpenJDK
   apt: name=openjdk-7-jre-headless state=present
   when: not skip_install
